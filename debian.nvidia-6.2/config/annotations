@@ -2,16 +2,49 @@
 # FORMAT: 4
 # ARCH: amd64 arm64
 # FLAVOUR: amd64-nvidia arm64-nvidia arm64-nvidia-64k
-# FLAVOUR_DEP: {'amd64-nvidia': 'amd64-generic', 'arm64-nvidia': 'arm64-generic', 'arm64-nvidia-64k': 'arm64-generic-64k'}
 
 include "../../debian.nvidia/config/annotations"
 
-CONFIG_RUST                                     policy<{'amd64': '-', 'arm64': '-'}>
+CONFIG_RUST                                     policy<{'amd64': 'n'}>
 CONFIG_RUST                                     note<'required to enable Rust support, LP: #1993183'>
 
-CONFIG_RUST_IS_AVAILABLE                        policy<{'amd64': '-', 'arm64': '-'}>
-CONFIG_RUST_IS_AVAILABLE                        note<'required to enable Rust support, LP: #1993183'>
 
 # ---- Annotations without notes ----
 
-CONFIG_CC_VERSION_TEXT                          policy<{'amd64': '"x86_64-linux-gnu-gcc-12 (Ubuntu 12.2.0-17ubuntu1) 12.2.0"', 'arm64': '"aarch64-linux-gnu-gcc-12 (Ubuntu 12.2.0-14ubuntu2) 12.2.0"'}>
+CONFIG_ARCH_FORCE_MAX_ORDER                     policy<{'arm64-nvidia': '13', 'arm64-nvidia-64k': '14'}>
+CONFIG_ARCH_MMAP_RND_BITS_MAX                   policy<{'amd64': '32', 'arm64-nvidia': '33', 'arm64-nvidia-64k': '29'}>
+CONFIG_ARCH_MMAP_RND_BITS_MIN                   policy<{'amd64': '28', 'arm64-nvidia': '18', 'arm64-nvidia-64k': '14'}>
+CONFIG_ARCH_MMAP_RND_COMPAT_BITS_MIN            policy<{'amd64': '8', 'arm64-nvidia': '11', 'arm64-nvidia-64k': '7'}>
+CONFIG_ARCH_WANTS_THP_SWAP                      policy<{'amd64': 'y', 'arm64-nvidia': 'y'}>
+CONFIG_ARCH_WANT_HUGE_PMD_SHARE                 policy<{'amd64': 'y', 'arm64-nvidia': 'y'}>
+CONFIG_ARM64_4K_PAGES                           policy<{'arm64-nvidia': 'y', 'arm64-nvidia-64k': 'n'}>
+CONFIG_ARM64_64K_PAGES                          policy<{'arm64-nvidia': 'n', 'arm64-nvidia-64k': 'y'}>
+CONFIG_ARM64_CONT_PMD_SHIFT                     policy<{'arm64-nvidia': '4', 'arm64-nvidia-64k': '5'}>
+CONFIG_ARM64_CONT_PTE_SHIFT                     policy<{'arm64-nvidia': '4', 'arm64-nvidia-64k': '5'}>
+CONFIG_ARM64_PAGE_SHIFT                         policy<{'arm64-nvidia': '12', 'arm64-nvidia-64k': '16'}>
+CONFIG_ARM64_PA_BITS_52                         policy<{'arm64-nvidia-64k': 'n'}>
+CONFIG_ARM64_VA_BITS_39                         policy<{'arm64-nvidia': 'n'}>
+CONFIG_ARM64_VA_BITS_42                         policy<{'arm64-nvidia-64k': 'n'}>
+CONFIG_ARM64_VA_BITS_52                         policy<{'arm64-nvidia-64k': 'n'}>
+CONFIG_ARM_SMMU_QCOM_DEBUG                      policy<{'arm64': 'n'}>
+CONFIG_AS_VERSION                               policy<{'amd64': '23800', 'arm64': '23800'}>
+CONFIG_BINDGEN_VERSION_TEXT                     policy<{'amd64': '-'}>
+CONFIG_CC_VERSION_TEXT                          policy<{'amd64': '"x86_64-linux-gnu-gcc-12 (Ubuntu 12.1.0-2ubuntu1~22.04) 12.1.0"', 'arm64': '"aarch64-linux-gnu-gcc-12 (Ubuntu 12.1.0-2ubuntu1~22.04) 12.1.0"'}>
+CONFIG_CONSTRUCTORS                             policy<{'amd64': '-'}>
+CONFIG_GCC_VERSION                              policy<{'amd64': '120100', 'arm64': '120100'}>
+CONFIG_LD_VERSION                               policy<{'amd64': '23800', 'arm64': '23800'}>
+CONFIG_MESON_SECURE_PM_DOMAINS                  policy<{'arm64-nvidia': 'y'}>
+CONFIG_MESON_SM                                 policy<{'arm64-nvidia': 'y'}>
+CONFIG_NTFS_RW                                  policy<{'amd64': 'n', 'arm64-nvidia': 'n'}>
+CONFIG_NVMEM_MESON_EFUSE                        policy<{'arm64-nvidia': 'n'}>
+CONFIG_PAGE_SIZE_LESS_THAN_64KB                 policy<{'amd64': 'y', 'arm64-nvidia': 'y'}>
+CONFIG_PAHOLE_HAS_LANG_EXCLUDE                  policy<{'amd64': 'y', 'arm64': 'y'}>
+CONFIG_PAHOLE_VERSION                           policy<{'amd64': '122', 'arm64': '122'}>
+CONFIG_PGTABLE_LEVELS                           policy<{'amd64': '5', 'arm64-nvidia': '4', 'arm64-nvidia-64k': '3'}>
+CONFIG_RUSTC_VERSION_TEXT                       policy<{'amd64': '-'}>
+CONFIG_RUST_BUILD_ASSERT_ALLOW                  policy<{'amd64': '-'}>
+CONFIG_RUST_DEBUG_ASSERTIONS                    policy<{'amd64': '-'}>
+CONFIG_RUST_OVERFLOW_CHECKS                     policy<{'amd64': '-'}>
+CONFIG_SAMPLES_RUST                             policy<{'amd64': '-'}>
+CONFIG_THP_SWAP                                 policy<{'amd64': 'y', 'arm64-nvidia': 'y'}>
+CONFIG_VMXNET3                                  policy<{'amd64': 'm', 'arm64-nvidia': 'n'}>
