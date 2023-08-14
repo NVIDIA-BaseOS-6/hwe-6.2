@@ -46,3 +46,4 @@ CONFIG_SENSORS_AAEON                            policy<{'amd64': '-'}>
 CONFIG_SHADOW_CALL_STACK                        policy<{'arm64': 'n'}>
 CONFIG_UBUNTU_ODM_DRIVERS                       policy<{'amd64': '-'}>
 CONFIG_MTD_SPI_NOR                              policy<{'arm64': 'y'}>
+CONFIG_INIT_ON_ALLOC_DEFAULT_ON                 policy<{'arm64': 'n'}>
