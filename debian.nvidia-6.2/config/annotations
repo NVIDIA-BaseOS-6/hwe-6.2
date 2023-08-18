@@ -24,6 +24,8 @@ CONFIG_PREEMPT_NONE                             note<'required for nvidia worklo
 CONFIG_PREEMPT_VOLUNTARY                        policy<{'amd64': 'y', 'arm64': 'n'}>
 CONFIG_PREEMPT_VOLUNTARY                        note<'required for nvidia workloads'>
 
+CONFIG_NR_CPUS                                  policy<{'arm64': '512'}>
+
 CONFIG_RUST                                     policy<{'amd64': 'n', 'arm64': '-'}>
 CONFIG_RUST                                     note<'required to enable Rust support, LP: #1993183'>
 
@@ -52,3 +54,4 @@ CONFIG_PAHOLE_VERSION                           policy<{'amd64': '125', 'arm64':
 CONFIG_SENSORS_AAEON                            policy<{'amd64': '-'}>
 CONFIG_SHADOW_CALL_STACK                        policy<{'arm64': 'n'}>
 CONFIG_UBUNTU_ODM_DRIVERS                       policy<{'amd64': '-'}>
+CONFIG_MTD_SPI_NOR                              policy<{'arm64': 'y'}>
